@@ -3,9 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation</title>
+    <title>Nav & Footer | Notely</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        nav ul li a.active {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border-bottom: 1px solid transparent;
+        }
+
+        /* Page header */
+        .page-header {
+            text-align: center;
+            padding: 100px 20px 60px;
+        }
+
+        .page-header h1 {
+            font-size: 2.4rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .page-header h1 span {
+            font-weight: 600;
+        }
+
+        .page-header p {
+            margin-top: 18px;
+            font-size: 1.05rem;
+            color: #666666;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Showcase blocks */
+        .showcase {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+        }
+
+        .showcase-block {
+            margin-bottom: 60px;
+        }
+
+        .showcase-block h2 {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999999;
+            margin-bottom: 16px;
+        }
+
+        .showcase-frame {
+            border: 1px solid #eaeaea;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #1a1a1a;
+            color: #cccccc;
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            margin: 2px 0;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 16px;
+        }
+
+        footer ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .page-header {
+                padding: 80px 20px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+
+    <nav>
+        <a class="logo" href="Somono.html">Notely</a>
+        <ul>
+            <li><a href="Somono.html">Home Page</a></li>
+            <li><a href="About.html">About Page</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <h1>Nav <span>&amp; Footer</span></h1>
+        <p>The shared navigation bar and footer used across every Notely page, shown here on their own as a quick reference for the group.</p>
+    </section>
+
+    <div class="showcase">
+        <div class="showcase-block">
+            <h2>Navbar</h2>
+            <div class="showcase-frame">
+                <nav>
+                    <a class="logo" href="Somono.html">Notely</a>
+                    <ul>
+                        <li><a href="Somono.html">Home Page</a></li>
+                        <li><a href="About.html">About Page</a></li>
+                        <li><a href="ContactUs.html">Contact Us</a></li>
+                        <li><a href="Login.html">Login</a></li>
+                        <li><a href="Dashboard.html">Dashboard</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="showcase-block">
+            <h2>Footer</h2>
+            <div class="showcase-frame">
+                <footer>
+                    <ul>
+                        <li><a href="Somono.html">Home Page</a></li>
+                        <li><a href="About.html">About Page</a></li>
+                        <li><a href="ContactUs.html">Contact Us</a></li>
+                        <li><a href="Login.html">Login</a></li>
+                        <li><a href="Dashboard.html">Dashboard</a></li>
+                    </ul>
+                    <p>&copy;2026 Tarlac State University</p>
+                    <p>Integrative Programming Technologies 2 Group Activity</p>
+                    <p>This website is only used for an activity required for this course matter.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="Somono.html">Home Page</a></li>
+            <li><a href="About.html">About Page</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+        </ul>
+        <p>&copy;2026 Tarlac State University</p>
+        <p>Integrative Programming Technologies 2 Group Activity</p>
+        <p>This website is only used for an activity required for this course matter.</p>
+    </footer>
+
 </body>
 </html>
