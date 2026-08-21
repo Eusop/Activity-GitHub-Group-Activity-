@@ -1,2 +1,2 @@
-# Activity-GitHub-Group-Activity-
-Github Group Activity (Bantigue, Constantino, Cruz, Peralta, Sembrano, Somono)
+# IPT2-Activity-GitHub
+Github Group Activity in IPT2 (Bantigue, Constantino, Cruz, Peralta, Sembrano, Somono)
