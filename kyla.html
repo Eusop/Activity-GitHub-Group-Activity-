@@ -3,9 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard | Notely</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        nav ul li a.active {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border-bottom: 1px solid transparent;
+        }
+
+        /* Page header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .page-header h1 span {
+            font-weight: 600;
+        }
+
+        .page-header p {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #666666;
+        }
+
+        .btn {
+            border: none;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background-color: #333333;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #1a1a1a;
+            border: 1px solid #1a1a1a;
+        }
+
+        .btn-outline:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 120px;
+        }
+
+        .dashboard-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .summary-card {
+            border: 1px solid #eaeaea;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .summary-card .count {
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        .summary-card .label {
+            margin-top: 6px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #999999;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999999;
+        }
+
+        .note-list {
+            list-style: none;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .note-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 4px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .note-list .note-title {
+            font-size: 0.95rem;
+        }
+
+        .note-list .note-meta {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #999999;
+        }
+
+        .note-list li.done .note-title {
+            color: #aaaaaa;
+            text-decoration: line-through;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #1a1a1a;
+            color: #cccccc;
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            margin: 2px 0;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 16px;
+        }
+
+        footer ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .page-header {
+                padding: 60px 20px 30px;
+            }
+
+            .dashboard-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+
+    <nav>
+        <a class="logo" href="Somono.html">Notely</a>
+        <ul>
+            <li><a href="Somono.html">Home Page</a></li>
+            <li><a href="About.html">About Page</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Dashboard.html" class="active">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <div>
+            <h1>Your <span>Notes</span></h1>
+            <p>A quick look at what you're working on.</p>
+        </div>
+        <button class="btn btn-outline" onclick="window.location.href='Login.html'">Log Out</button>
+    </section>
+
+    <div class="dashboard">
+        <div class="dashboard-summary">
+            <div class="summary-card">
+                <div class="count" id="notes-count">12</div>
+                <div class="label">Notes</div>
+            </div>
+            <div class="summary-card">
+                <div class="count" id="notebooks-count">4</div>
+                <div class="label">Notebooks</div>
+            </div>
+            <div class="summary-card">
+                <div class="count" id="tasks-count">7</div>
+                <div class="label">Checklist Items</div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Recent Notes</h2>
+            <button class="btn" id="add-note-btn">+ New Note</button>
+        </div>
+        <ul class="note-list" id="note-list">
+            <li>
+                <span class="note-title">Group activity outline</span>
+                <span class="note-meta">Today</span>
+            </li>
+            <li>
+                <span class="note-title">Grocery checklist</span>
+                <span class="note-meta">Yesterday</span>
+            </li>
+            <li class="done">
+                <span class="note-title">Finish reading assignment</span>
+                <span class="note-meta">Done</span>
+            </li>
+            <li>
+                <span class="note-title">Ideas for the weekend</span>
+                <span class="note-meta">3 days ago</span>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <ul>
+            <li><a href="Somono.html">Home Page</a></li>
+            <li><a href="About.html">About Page</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+        </ul>
+        <p>&copy;2026 Tarlac State University</p>
+        <p>Integrative Programming Technologies 2 Group Activity</p>
+        <p>This website is only used for an activity required for this course matter.</p>
+    </footer>
+
+    <script>
+        document.getElementById('add-note-btn').addEventListener('click', function () {
+            var list = document.getElementById('note-list');
+            var li = document.createElement('li');
+
+            var title = document.createElement('span');
+            title.className = 'note-title';
+            title.textContent = 'Untitled note';
+
+            var meta = document.createElement('span');
+            meta.className = 'note-meta';
+            meta.textContent = 'Just now';
+
+            li.appendChild(title);
+            li.appendChild(meta);
+            list.insertBefore(li, list.firstChild);
+
+            var counter = document.getElementById('notes-count');
+            counter.textContent = parseInt(counter.textContent, 10) + 1;
+        });
+    </script>
+
 </body>
 </html>
