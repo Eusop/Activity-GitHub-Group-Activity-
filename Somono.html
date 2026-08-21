@@ -3,9 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Notely | Note Taking</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        nav ul li a.active {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border-bottom: 1px solid transparent;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 140px 20px 100px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+        }
+
+        .hero p {
+            margin-top: 18px;
+            font-size: 1.05rem;
+            color: #666666;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            border: none;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 14px 32px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #333333;
+        }
+
+        .hero .btn {
+            margin-top: 30px;
+        }
+
+        /* Features */
+        .features {
+            text-align: center;
+            padding: 80px 60px 100px;
+        }
+
+        .features h2 {
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999999;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-item {
+            aspect-ratio: 4 / 5;
+            background-color: #f7f7f7;
+            border: 1px solid #eaeaea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-item:hover {
+            background-color: #efefef;
+            border-color: #1a1a1a;
+        }
+
+        .feature-item .icon {
+            font-size: 1.8rem;
+        }
+
+        .feature-item span {
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+        }
+
+        .feature-item p {
+            font-size: 0.8rem;
+            color: #777777;
+            max-width: 180px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #1a1a1a;
+            color: #cccccc;
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            margin: 2px 0;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 16px;
+        }
+
+        footer ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        footer ul li a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 100px 20px 70px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Home Page</h1>
+
+    <nav>
+        <div class="logo">Notely</div>
+        <ul>
+            <li><a href="Somono.html" class="active">Home Page</a></li>
+            <li><a href="About.html">About Page</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Capture your thoughts, <span>organize your mind</span></h1>
+        <p>A minimalist note-taking app for quick jots, structured notebooks, and checklists that keep you on track.</p>
+        <button class="btn" onclick="window.location.href='Dashboard.html'">Get Started</button>
+    </section>
+
+    <section class="features">
+        <h2>Explore Features</h2>
+        <div class="features-grid">
+            <a class="feature-item" href="Dashboard.html">
+                <span class="icon">&#128221;</span>
+                <span>Quick Notes</span>
+                <p>Jot down ideas the moment they strike, no folders required.</p>
+            </a>
+            <a class="feature-item" href="Dashboard.html">
+                <span class="icon">&#128218;</span>
+                <span>Notebooks</span>
+                <p>Group related notes together and keep everything organized.</p>
+            </a>
+            <a class="feature-item" href="Dashboard.html">
+                <span class="icon">&#9989;</span>
+                <span>Checklists</span>
+                <p>Turn notes into to-dos and track what's done at a glance.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li><a href="Somono.html">Home Page</a></li>
+            <li><a href="About.html">About Page</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+        </ul>
+        <p>&copy;2026 Tarlac State University</p>
+        <p>Integrative Programming Technologies 2 Group Activity</p>
+        <p>This website is only used for an activity required for this course matter.</p>
+    </footer>
+
 </body>
 </html>
